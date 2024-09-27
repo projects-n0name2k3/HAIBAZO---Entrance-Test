@@ -87,6 +87,10 @@ function App() {
         <button
           className="px-4 py-2 w-32 border text-center rounded-md border-black hover:opacity-60"
           onClick={() => {
+            if (points <= 0) {
+              alert("Points should be greater than 0");
+              return;
+            }
             setIsOver(false);
             setIsCompleted(false);
             setNextTarget(0);
