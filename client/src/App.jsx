@@ -70,7 +70,13 @@ function App() {
             type="number"
             min={1}
             value={points}
-            onChange={(e) => setPoints(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value <= 0) {
+                alert("Points should be greater than 0");
+                return;
+              }
+              setPoints(e.target.value);
+            }}
             className="border border-gray-200 rounded-md p-2"
           />
         </div>
