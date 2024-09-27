@@ -69,12 +69,18 @@ function App() {
           <input
             type="number"
             min={1}
+            max={9999}
             value={points}
             onChange={(e) => {
               if (e.target.value <= 0) {
                 alert("Points should be greater than 0");
                 return;
               }
+              if (e.target.value >= 10000) {
+                alert("Points should be less than 10000");
+                return;
+              }
+
               setPoints(e.target.value);
             }}
             className="border border-gray-200 rounded-md p-2"
@@ -89,6 +95,10 @@ function App() {
           onClick={() => {
             if (points <= 0) {
               alert("Points should be greater than 0");
+              return;
+            }
+            if (points >= 10000) {
+              alert("Points should be less than 10000");
               return;
             }
             setIsOver(false);
